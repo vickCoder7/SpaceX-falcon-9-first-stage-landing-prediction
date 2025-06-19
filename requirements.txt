@@ -1,0 +1,8 @@
+requests
+pandas
+numpy
+bs4
+re
+unicodedata
+sqlite3
+prettytable
