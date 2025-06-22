@@ -47,7 +47,7 @@ def get_pie_chart(entered_site):
         fig = px.pie(df, values='class', names='Launch Site', title='Total Success Launches By Site')
     else:
         filtered_df = df[df['Launch Site'] == entered_site]
-        counts = filtered_df['class'].value_counts().reset_index()
+        counts = pd.Series(filtered_df['class']).value_counts().reset_index()
         counts.columns = ['class', 'count']
         fig = px.pie(
             counts, 
