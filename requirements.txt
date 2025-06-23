@@ -6,3 +6,8 @@ re
 unicodedata
 sqlite3
 prettytable
+scikit-learn
+matplotlib
+seaborn
+plotly
+dash
