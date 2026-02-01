@@ -8,6 +8,7 @@ from dash.dependencies import State
 
 # Load Dataset
 df = pd.read_csv('./data/spacex_launch_dash.csv')
+df_geo = pd.read_csv('./data/spacex_launch_geo.csv')
 max_payload = df['Payload Mass (kg)'].max()
 min_payload = df['Payload Mass (kg)'].min()
 
@@ -125,7 +126,18 @@ app.layout = dbc.Container([
                     
                     html.Div(id="prediction-output", className="lead text-center")
                 ], fluid=True)
-            ])
+            ]),
+
+            # Tab 3: Launch Site Map
+            # dbc.Tab(label='Launch Map', children=[
+            #     dbc.Row([
+            #         dbc.Col(html.H3("Launch Site Locations", className="mt-3 text-center"), width=12),
+            #         dbc.Col(html.P("Interactive map of launch sites and mission outcomes.", className="text-muted text-center"), width=12)
+            #     ]),
+            #     dbc.Row([
+            #         dbc.Col(dcc.Graph(id='launch-map'), width=12)
+            #     ])
+            # ])
         ]))
     ])
 ], fluid=True)
@@ -167,6 +179,40 @@ def get_scatter_chart(entered_site, payload_range):
         template='plotly_dark'
     )
     return fig
+
+# Callback for Launch Map
+# @app.callback(
+#     Output('launch-map', 'figure'),
+#     Input('site-dropdown', 'value')
+# )
+# def get_map(entered_site):
+#     if entered_site == 'ALL':
+#         filtered_df = df_geo
+#         title = 'All Launch Sites'
+#     else:
+#         filtered_df = df_geo[df_geo['Launch Site'] == entered_site]
+#         title = f'Launch Site: {entered_site}'
+    
+#     fig = px.scatter_mapbox(
+#         filtered_df,
+#         lat='Lat',
+#         lon='Long',
+#         color='class',
+#         color_continuous_scale=['red', 'green'],
+#         size_max=15,
+#         zoom=3,
+#         hover_name='Launch Site',
+#         hover_data=['Payload', 'Booster Version', 'class'],
+#         title=title,
+#         mapbox_style='carto-darkmatter',
+#         template='plotly_dark'
+#     )
+#     # Adjust zoom if specific site is selected
+#     if entered_site != 'ALL':
+#         fig.update_layout(mapbox_zoom=10)
+        
+#     fig.update_layout(margin={"r":0,"t":40,"l":0,"b":0})
+#     return fig
 
 # Callback for Prediction
 @app.callback(
