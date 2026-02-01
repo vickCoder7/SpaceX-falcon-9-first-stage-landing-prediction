@@ -1,0 +1,7 @@
+.venv
+__pycache__/
+*.pyc
+.pytest_cache/
+.data/
+./notebooks/my_data1.db
+./notebooks/web_scraping_falcon.ipynb
