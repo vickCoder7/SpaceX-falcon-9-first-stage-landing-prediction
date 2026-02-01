@@ -1,13 +1,11 @@
 requests
 pandas
 numpy
-bs4
-re
-unicodedata
-sqlite3
-prettytable
+beautifulsoup4
 scikit-learn
 matplotlib
 seaborn
 plotly
 dash
+dash-bootstrap-components
+gunicorn
