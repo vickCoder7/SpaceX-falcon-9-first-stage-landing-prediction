@@ -7,12 +7,12 @@ from sklearn.model_selection import train_test_split
 
 print("Loading data...")
 # Load Features
-X_df = pd.read_csv('../data/features_one_hot.csv')
+X_df = pd.read_csv('./data/features_one_hot.csv')
 feature_names = X_df.columns.tolist()
 X = X_df.values
 
 # Load Target
-df_target = pd.read_csv('../data/spacexdata.csv')
+df_target = pd.read_csv('./data/spacexdata.csv')
 y = df_target['Class'].to_numpy()
 
 print(f"Features shape: {X.shape}")
@@ -40,7 +40,7 @@ artifact = {
     'feature_names': feature_names
 }
 
-with open('../data/model.pkl', 'wb') as f:
+with open('./data/model.pkl', 'wb') as f:
     pickle.dump(artifact, f)
 
-print("Model saved to ../data/model.pkl")
+print("Model saved to ./data/model.pkl")
