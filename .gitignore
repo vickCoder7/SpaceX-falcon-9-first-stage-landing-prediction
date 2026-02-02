@@ -6,7 +6,6 @@ data/spacex_web_scraped.csv
 data/Spacex.csv
 my_data1.db
 notebooks/web_scraping_falcon.ipynb
-data/model.pkl
 Dockerfile
 Procfile
 DEPLOYMENT.md
