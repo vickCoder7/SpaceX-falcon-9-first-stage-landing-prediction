@@ -26,7 +26,7 @@ Space X advertises Falcon 9 rocket launches on its website with a cost of 62 mil
     ```
 2.  Open your browser and visit `http://127.0.0.1:8050/`.
 
-## Running with Docker
+<!-- ## Running with Docker
 
 1.  Build the image:
     ```bash
@@ -39,4 +39,4 @@ Space X advertises Falcon 9 rocket launches on its website with a cost of 62 mil
 
 ## Deployment
 
-The project includes a `Procfile` for deployment on platforms like Heroku.
+The project includes a `Procfile` for deployment on platforms like Heroku. -->
