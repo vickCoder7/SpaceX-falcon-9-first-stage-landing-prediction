@@ -181,38 +181,38 @@ def get_scatter_chart(entered_site, payload_range):
     return fig
 
 # Callback for Launch Map
-# @app.callback(
-#     Output('launch-map', 'figure'),
-#     Input('site-dropdown', 'value')
-# )
-# def get_map(entered_site):
-#     if entered_site == 'ALL':
-#         filtered_df = df_geo
-#         title = 'All Launch Sites'
-#     else:
-#         filtered_df = df_geo[df_geo['Launch Site'] == entered_site]
-#         title = f'Launch Site: {entered_site}'
+@app.callback(
+    Output('launch-map', 'figure'),
+    Input('site-dropdown', 'value')
+)
+def get_map(entered_site):
+    if entered_site == 'ALL':
+        filtered_df = df_geo
+        title = 'All Launch Sites'
+    else:
+        filtered_df = df_geo[df_geo['Launch Site'] == entered_site]
+        title = f'Launch Site: {entered_site}'
     
-#     fig = px.scatter_mapbox(
-#         filtered_df,
-#         lat='Lat',
-#         lon='Long',
-#         color='class',
-#         color_continuous_scale=['red', 'green'],
-#         size_max=15,
-#         zoom=3,
-#         hover_name='Launch Site',
-#         hover_data=['Payload', 'Booster Version', 'class'],
-#         title=title,
-#         mapbox_style='carto-darkmatter',
-#         template='plotly_dark'
-#     )
-#     # Adjust zoom if specific site is selected
-#     if entered_site != 'ALL':
-#         fig.update_layout(mapbox_zoom=10)
+    fig = px.scatter_mapbox(
+        filtered_df,
+        lat='Lat',
+        lon='Long',
+        color='class',
+        color_continuous_scale=['red', 'green'],
+        size_max=15,
+        zoom=3,
+        hover_name='Launch Site',
+        hover_data=['Payload', 'Booster Version', 'class'],
+        title=title,
+        mapbox_style='carto-darkmatter',
+        template='plotly_dark'
+    )
+    # Adjust zoom if specific site is selected
+    if entered_site != 'ALL':
+        fig.update_layout(mapbox_zoom=10)
         
-#     fig.update_layout(margin={"r":0,"t":40,"l":0,"b":0})
-#     return fig
+    fig.update_layout(margin={"r":0,"t":40,"l":0,"b":0})
+    return fig
 
 # Callback for Prediction
 @app.callback(
