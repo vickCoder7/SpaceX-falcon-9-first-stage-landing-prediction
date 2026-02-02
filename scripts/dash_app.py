@@ -58,8 +58,8 @@ app.layout = dbc.Container([
                 ]),
 
                 dbc.Row([
-                    dbc.Col(dcc.Graph(id='success-pie-chart'), width=6),
-                    dbc.Col(dcc.Graph(id='success-payload-scatter-chart'), width=6)
+                    dbc.Col(dcc.Graph(id='success-pie-chart'), width=12, md=6),
+                    dbc.Col(dcc.Graph(id='success-payload-scatter-chart'), width=12, md=6)
                 ]),
 
                 dbc.Row([
@@ -88,7 +88,7 @@ app.layout = dbc.Container([
                         dbc.Col([
                             dbc.Label("Payload Mass (kg)"),
                             dbc.Input(id="input-payload", type="number", placeholder="e.g. 5000")
-                        ], width=4),
+                        ], width=12, md=4),
                         dbc.Col([
                             dbc.Label("Launch Site"),
                             dbc.Select(
@@ -100,7 +100,7 @@ app.layout = dbc.Container([
                                     {"label": "CCAFS SLC-40", "value": "CCAFS SLC-40"}
                                 ]
                             )
-                        ], width=4),
+                        ], width=12, md=4),
                          dbc.Col([
                             dbc.Label("Orbit Type"),
                             dbc.Select(
@@ -119,7 +119,7 @@ app.layout = dbc.Container([
                                     {"label": "GEO", "value": "GEO"}
                                 ]
                             )
-                        ], width=4),
+                        ], width=12, md=4),
                     ], className="mb-3"),
                     
                     dbc.Button("Predict Outcome", id="predict-btn", color="success", className="mb-3"),
